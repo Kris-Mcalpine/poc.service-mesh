@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: dashboard-service
+  namespace: dashboard-service
+spec:
+  selector:
+    app: dashboard-service
+  ports:
+    - protocol: TCP
+      port: 32478
+      targetPort: dashboard
+  type: LoadBalancer

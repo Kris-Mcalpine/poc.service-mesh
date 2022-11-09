@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dashboard-service
+  namespace: dashboard-service
+  labels:
+    app: dashboard-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dashboard-service
+  template:
+    metadata:
+      labels:
+        app: dashboard-service
+        version: v0.0.0
+    spec:
+      containers:
+        - name: dashboard-service
+          image: dashboard-service:0.0.0
+          imagePullPolicy: Never
+          env:
+            - name: TIME_SERVICE
+              value: time-service.time-service.svc.cluster.local
+            - name: TIME_SERVICE_PORT
+              value: '32476'
+            - name: USER_SERVICE
+              value: user-service.user-service.svc.cluster.local
+            - name: USER_SERVICE_PORT
+              value: '32477'
+          ports:
+            - containerPort: 3000
+              name: dashboard
