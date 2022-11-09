@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+ensure-minikube-context() {
+  # Ensure kubectl is pointing to local minikube
+  if [ "$(kubectl config current-context)" != "minikube" ]; then
+    echo "[!] kubectl is currently pointing to '$(kubectl config current-context)'"
+    echo "[*] Switching context to 'minikube'"
+    kubectl config use-context minikube
+    echo "[+] Now using 'minikube' kubectl context"
+  else
+    echo "[+] Kubectl is using 'minikube' context"
+  fi
+}

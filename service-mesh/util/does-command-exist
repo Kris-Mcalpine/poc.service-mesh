@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -e
+
+# Example usage:
+# if [ "$(does-command-exist "grep")" ]; then
+#   echo "Command exists"
+# else
+#   echo "Command does not exist"
+# fi
+does-command-exist() {
+  if [ "$#" -eq 0 ]; then
+    echo "Usage: $0 <command>"
+    exit 1
+  fi
+
+  if [ -x "$(command -v $1)" ]; then
+    echo "1"
+  fi
+}
