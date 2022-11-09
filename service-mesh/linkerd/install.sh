@@ -21,3 +21,10 @@ linkerd install --set proxyInit.runAsRoot=true | kubectl apply -f -
 linkerd check
 
 echo "[+] Linkerd installed"
+
+echo "[*] Installing Linkerd dashboard"
+linkerd viz install | kubectl apply -f -
+linkerd check
+echo "[+] Linkerd dashbord installed.
+
+Run 'linkerd viz dashboard &' to view."
