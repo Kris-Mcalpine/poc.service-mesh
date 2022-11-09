@@ -4,3 +4,5 @@ metadata:
   name: dashboard-service
   labels:
     name: dashboard-service
+  annotations:
+    linkerd.io/inject: enabled
