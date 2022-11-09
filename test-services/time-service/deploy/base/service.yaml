@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: time-service
+  namespace: time-service
+spec:
+  selector:
+    app: time-service
+  ports:
+  - protocol: TCP
+    port: 32476 
+    targetPort: time-service
+  type: LoadBalancer

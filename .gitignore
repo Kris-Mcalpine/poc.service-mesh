@@ -1,1 +1,4 @@
 .DS_Store
+
+*-template.yaml
+node_modules/

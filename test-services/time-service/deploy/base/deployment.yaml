@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: time-service
+  namespace: time-service
+  labels:
+    app: time-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: time-service
+  template:
+    metadata:
+      labels:
+        app: time-service
+        version: v0.0.0
+    spec:
+      containers:
+        - name: time-service
+          image: time-service:0.0.0
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 3000
+              name: time-service

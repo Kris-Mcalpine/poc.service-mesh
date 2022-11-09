@@ -1,0 +1,25 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - service-account.yaml
+  - deployment.yaml
+  - ingress.yaml
+  - service.yaml
+
+patches:
+  - patch: |-
+      - op: replace
+        path: /spec/http/0/route/0/destination/subset
+        value: ${APP_VERSION}
+    target:
+      kind: VirtualService
+
+images:
+  - name: time-service
+    newTag: ${APP_VERSION}
+
+commonLabels:
+  app: time-service
+  version: ${APP_VERSION}

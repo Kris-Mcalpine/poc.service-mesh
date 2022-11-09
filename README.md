@@ -24,3 +24,38 @@ containing a service mesh implementation using:
 ```shell
 minikube delete
 ```
+
+## Deploying Test Services
+
+Each test service has it's own `deploy.sh` script that will build a docker image using minikube's docker daemon, meaning the cluster can run the image without it having to be exported to an external registry.
+
+It also deploys the appropriate kubernetes resources for the service.
+
+###  Connecting to services outside kubernetes
+
+To access services in the cluster using curl, browser postman etc, run the following command in a separate terminal:
+
+```shell
+minikube tunnel
+```
+
+The service should now be accessible via <<http://localhost:<port_nunber>>>
+
+Note: If you specify a `host` in your services ingress rules section, you will need to add a line similar to the following to yout `/etc/hosts` file:
+
+```
+127.0.0.1 your-domain.local
+```
+
+## Test Services
+
+### Time Service
+
+Returns the current date and time.
+
+Example:
+
+```shell
+$ curl http://localhost:32476
+2022-11-09T11:03:53.866Z
+```
