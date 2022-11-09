@@ -39,7 +39,7 @@ To access services in the cluster using curl, browser postman etc, run the follo
 minikube tunnel
 ```
 
-The service should now be accessible via <<http://localhost:<port_nunber>>>
+The service should now be accessible via <<<http://localhost:<port_nunber>>>>
 
 Note: If you specify a `host` in your services ingress rules section, you will need to add a line similar to the following to yout `/etc/hosts` file:
 
@@ -58,4 +58,26 @@ Example:
 ```shell
 $ curl http://localhost:32476
 2022-11-09T11:03:53.866Z
+```
+
+###  User Service
+
+Returns a username based on a URL parameter.
+
+Example:
+
+```shell
+$ curl http://localhost:32477/2
+Jane
+```
+
+###  Dashboard Service
+
+Calls the user and time services to generate a string containing the time and a user name.
+
+Example:
+
+```shell
+$ curl http://localhost:32478
+Hello Jane, The time is 2022-11-09T11:03:53.866Z
 ```
