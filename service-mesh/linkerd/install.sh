@@ -24,6 +24,7 @@ echo "[+] Linkerd installed"
 
 echo "[*] Installing Linkerd dashboard"
 linkerd viz install | kubectl apply -f -
+linkerd jaeger install | kubectl apply -f -
 linkerd check
 echo "[+] Linkerd dashbord installed.
 
