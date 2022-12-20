@@ -4,5 +4,3 @@ metadata:
   name: user-service
   labels:
     name: user-service
-  annotations:
-    linkerd.io/inject: enabled

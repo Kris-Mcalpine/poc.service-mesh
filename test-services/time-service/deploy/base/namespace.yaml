@@ -4,5 +4,3 @@ metadata:
   name: time-service
   labels:
     name: time-service
-  annotations:
-    linkerd.io/inject: enabled
