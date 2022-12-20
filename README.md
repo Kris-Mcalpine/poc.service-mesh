@@ -39,7 +39,7 @@ To access services in the cluster using curl, browser postman etc, run the follo
 minikube tunnel
 ```
 
-The service should now be accessible via <<<http://localhost:<port_nunber>>>>
+The service should now be accessible via <<<<http://localhost:<port_nunber>>>>>
 
 Note: If you specify a `host` in your services ingress rules section, you will need to add a line similar to the following to yout `/etc/hosts` file:
 
@@ -48,6 +48,13 @@ Note: If you specify a `host` in your services ingress rules section, you will n
 ```
 
 ## Test Services
+
+3 test services are provided to allow testing connectiviting between external clients and between services within the cluster.
+These can be deployed using the `deploy.sh` scripts within each test service.
+
+`deploy.sh 1.0`
+
+The deployment scripts take a version number that can be altered to test deployment strategies moving from one version to another.
 
 ### Time Service
 
