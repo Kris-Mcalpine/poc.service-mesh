@@ -6,8 +6,10 @@ metadata:
 spec:
   selector:
     app: time-service
+    version: 0.0.0 
   ports:
-  - protocol: TCP
-    port: 32476 
-    targetPort: time-service
+    - protocol: TCP
+      port: 32476 
+      targetPort: time-service
+      name: time-service
   type: LoadBalancer

@@ -7,14 +7,7 @@ resources:
   - deployment.yaml
   - ingress.yaml
   - service.yaml
-
-patches:
-  - patch: |-
-      - op: replace
-        path: /spec/http/0/route/0/destination/subset
-        value: ${APP_VERSION}
-    target:
-      kind: VirtualService
+  - canary.yaml
 
 images:
   - name: time-service
@@ -22,4 +15,3 @@ images:
 
 commonLabels:
   app: time-service
-  version: ${APP_VERSION}
